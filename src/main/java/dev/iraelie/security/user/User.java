@@ -1,5 +1,8 @@
 package dev.iraelie.security.user;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class User {
     private String id;
     private String firstName;
