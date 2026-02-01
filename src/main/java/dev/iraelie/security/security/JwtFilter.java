@@ -16,11 +16,11 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(
             @NonNull
-            HttpServletRequest request,
+            final HttpServletRequest request,
             @NonNull
-            HttpServletResponse response,
+            final HttpServletResponse response,
             @NonNull
-            FilterChain filterChain) throws ServletException, IOException {
+            final FilterChain filterChain) throws ServletException, IOException {
 
     }
 }
