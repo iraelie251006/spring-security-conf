@@ -57,6 +57,7 @@ public class User implements UserDetails {
     private LocalDateTime lastModifiedDate;
 
     @Override
+    @NonNull
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
     }
