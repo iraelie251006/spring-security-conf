@@ -1,18 +1,23 @@
 package dev.iraelie.security.role;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.Table;
+import dev.iraelie.security.user.User;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Table(name = "users")
-@EntityListeners(AuditingEntityListener.class)
-public class Role {
+@SuperBuilder
+@Table(name = "ROLES")
+public class Role{
+    @Column(name = "NAME", nullable = false)
+    private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 }
