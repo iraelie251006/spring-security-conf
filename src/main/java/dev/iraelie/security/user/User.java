@@ -1,5 +1,6 @@
 package dev.iraelie.security.user;
 
+import dev.iraelie.security.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -55,6 +56,21 @@ public class User implements UserDetails {
     @LastModifiedDate
     @Column(name = "LAST_MODIFIED_DATE", insertable = false)
     private LocalDateTime lastModifiedDate;
+
+    @ManyToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            fetch = FetchType.EAGER
+    )
+    @JoinTable(
+            name = "USERS_ROLES",
+            joinColumns = {
+                    @JoinColumn(name = "users_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "roles_id")
+            }
+    )
+    private List<Role> roles;
 
     @Override
     @NonNull
