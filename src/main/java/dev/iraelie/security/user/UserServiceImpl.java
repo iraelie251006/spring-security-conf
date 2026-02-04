@@ -5,6 +5,7 @@ import dev.iraelie.security.exception.ErrorCode;
 import dev.iraelie.security.request.ChangePasswordRequest;
 import dev.iraelie.security.request.ProfileUpdateRequest;
 import lombok.RequiredArgsConstructor;
+import org.jspecify.annotations.NullMarked;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,8 +16,8 @@ import static dev.iraelie.security.exception.ErrorCode.*;
 
 @Service
 @RequiredArgsConstructor
+@NullMarked
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;

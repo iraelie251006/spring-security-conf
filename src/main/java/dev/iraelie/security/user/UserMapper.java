@@ -1,9 +1,7 @@
 package dev.iraelie.security.user;
 
-package com.alibou.app.user;
-
-import com.alibou.app.auth.request.RegistrationRequest;
-import com.alibou.app.user.request.ProfileUpdateRequest;
+import dev.iraelie.security.request.ProfileUpdateRequest;
+import dev.iraelie.security.request.RegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
