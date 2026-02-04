@@ -5,6 +5,7 @@ import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
 public class KeyUtils {
@@ -28,7 +29,7 @@ public class KeyUtils {
                 .replaceAll("\\s+", "");
 
         final byte[] decoded = Base64.getDecoder().decode(key);
-        final PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(decoded);
+        final X509EncodedKeySpec spec = new X509EncodedKeySpec(decoded);
         return KeyFactory.getInstance("RSA").generatePublic(spec);
     }
 
