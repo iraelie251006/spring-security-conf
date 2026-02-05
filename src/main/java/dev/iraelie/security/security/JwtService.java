@@ -59,7 +59,7 @@ public class JwtService {
         return extractClaims(token).getExpiration().before(new Date());
     }
 
-    private String extractUsername(String token) {
+    public String extractUsername(String token) {
         return extractClaims(token).getSubject();
     }
 
