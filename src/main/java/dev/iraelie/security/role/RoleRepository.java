@@ -1,7 +1,6 @@
-package dev.iraelie.security.auth;
+package dev.iraelie.security.role;
 
 
-import dev.iraelie.security.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
