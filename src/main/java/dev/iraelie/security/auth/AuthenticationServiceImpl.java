@@ -23,6 +23,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,7 @@ public class AuthenticationServiceImpl implements AuthenticationService{
     }
 
     @Override
+    @Transactional
     public void register(RegistrationRequest request) {
         checkUserEmail(request.getEmail());
         checkUserPhoneNumber(request.getPhoneNumber());
