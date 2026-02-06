@@ -1,5 +1,6 @@
 package dev.iraelie.security.request;
 
+import dev.iraelie.security.validation.NonDisposableEmail;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -28,7 +29,7 @@ public class RegistrationRequest {
             regexp = "^[\\p{L} '-]+$",
             message = "VALIDATION.REGISTRATION.FIRST_NAME.PATTERN"
     )
-    @Schema(example = "Ali")
+    @Schema(example = "Irakoze")
     String firstName;
 
     @NotBlank(message = "VALIDATION.REGISTRATION.LAST_NAME.BLANK")
@@ -41,13 +42,13 @@ public class RegistrationRequest {
             regexp = "^[\\p{L} '-]+$",
             message = "VALIDATION.REGISTRATION.LAST_NAME.PATTERN"
     )
-    @Schema(example = "Bouali")
+    @Schema(example = "Elie")
     String lastName;
 
     @NotBlank(message = "VALIDATION.REGISTRATION.EMAIL.BLANK")
     @Email(message = "VALIDATION.REGISTRATION.EMAIL.FORMAT")
     @NonDisposableEmail(message = "VALIDATION.REGISTRATION.EMAIL.DISPOSABLE")
-    @Schema(example = "ali@mail.com")
+    @Schema(example = "elie@mail.com")
     String email;
 
     @NotBlank(message = "VALIDATION.REGISTRATION.PHONE.BLANK")
