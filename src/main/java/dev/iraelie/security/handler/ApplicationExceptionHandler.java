@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,8 +16,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dev.iraelie.security.exception.ErrorCode.BAD_CREDENTIALS;
-import static dev.iraelie.security.exception.ErrorCode.ERR_USER_DISABLED;
+import static dev.iraelie.security.exception.ErrorCode.*;
 import static org.springframework.http.HttpStatus.*;
 
 @RestControllerAdvice
@@ -87,5 +87,16 @@ public class ApplicationExceptionHandler {
                 .message(exception.getMessage())
                 .build();
         return new ResponseEntity<>(errorResponse, NOT_FOUND);
+    }
+
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleException(final UsernameNotFoundException exception) {
+        log.debug(exception.getMessage(), exception);
+        final ErrorResponse response = ErrorResponse.builder()
+                .code(USERNAME_NOT_FOUND.getCode())
+                .message(USERNAME_NOT_FOUND.getDefaultMessage())
+                .build();
+        return new ResponseEntity<>(response,
+                NOT_FOUND);
     }
 }
