@@ -11,6 +11,10 @@ import java.util.Base64;
 public class KeyUtils {
     private KeyUtils() {}
 
+//    This is how to generate RSA private keys using openssl
+//    private key: openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+//    public key: openssl rsa -pubout -in private_key.pem -out public_key.pem
+
     public static PrivateKey loadPrivateKey(final String pemPath) throws Exception {
         final String key = readKeyFromResource(pemPath)
                 .replace("-----BEGIN PRIVATE KEY-----",  "")
