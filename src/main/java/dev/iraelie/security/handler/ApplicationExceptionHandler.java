@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -98,5 +99,14 @@ public class ApplicationExceptionHandler {
                 .build();
         return new ResponseEntity<>(response,
                 NOT_FOUND);
+    }
+
+    @ExceptionHandler(AuthorizationDeniedException.class)
+    public ResponseEntity<ErrorResponse> handleException(final AuthorizationDeniedException exception) {
+        log.debug(exception.getMessage(), exception);
+        final ErrorResponse response = ErrorResponse.builder()
+                .message("You are not authorized to perform this operation")
+                .build();
+        return new ResponseEntity<>(response, UNAUTHORIZED);
     }
 }
