@@ -109,4 +109,14 @@ public class ApplicationExceptionHandler {
                 .build();
         return new ResponseEntity<>(response, UNAUTHORIZED);
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleException(final Exception exception) {
+        log.error(exception.getMessage(), exception);
+        final ErrorResponse response = ErrorResponse.builder()
+                .code(INTERNAL_EXCEPTION.getCode())
+                .message(INTERNAL_EXCEPTION.getDefaultMessage())
+                .build();
+        return new ResponseEntity<>(response, INTERNAL_SERVER_ERROR);
+    }
 }
