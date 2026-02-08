@@ -1,6 +1,7 @@
 package dev.iraelie.security.handler;
 
 import dev.iraelie.security.exception.BusinessException;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,7 @@ import java.util.List;
 
 import static dev.iraelie.security.exception.ErrorCode.BAD_CREDENTIALS;
 import static dev.iraelie.security.exception.ErrorCode.ERR_USER_DISABLED;
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.UNAUTHORIZED;
+import static org.springframework.http.HttpStatus.*;
 
 @RestControllerAdvice
 @Slf4j
@@ -77,5 +77,15 @@ public class ApplicationExceptionHandler {
                 .code(BAD_CREDENTIALS.getCode())
                 .build();
         return new ResponseEntity<>(response, UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleException(final EntityNotFoundException exception) {
+        log.debug(exception.getMessage(), exception);
+        final ErrorResponse errorResponse = ErrorResponse.builder()
+                .code("TBD")
+                .message(exception.getMessage())
+                .build();
+        return new ResponseEntity<>(errorResponse, NOT_FOUND);
     }
 }
