@@ -31,3 +31,17 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Private keys and certificates
+*.pem
+private_key.pem
+public_key.pem
+keys.local-only/
+
+# OR if you want to ignore the entire keys folder
+keys*/
