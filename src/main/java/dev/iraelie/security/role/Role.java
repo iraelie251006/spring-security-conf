@@ -1,5 +1,6 @@
 package dev.iraelie.security.role;
 
+import dev.iraelie.security.common.BaseEntity;
 import dev.iraelie.security.user.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 @Table(name = "ROLES")
-public class Role{
+public class Role extends BaseEntity {
     @Column(name = "NAME", nullable = false)
     private String name;
 
