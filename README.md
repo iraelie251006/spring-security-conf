@@ -10,3 +10,6 @@ N.B: Never share the private key, but you can share public key
 ```
 
 ### Public key
+```bash
+openssl rsa -pubout -in private-key.pem -out public_key.pem  
+```
