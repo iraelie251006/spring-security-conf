@@ -5,4 +5,8 @@ public enum Permission {
     Permission(String permission) {
         this.permission = permission;
     }
+
+    public String getPermission() {
+        return permission;
+    }
 }
