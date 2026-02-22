@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum Permission {
+    // BLOG PERMISSIONS
     BLOG_READ("blog:read"),               // Anyone can read blogs
     BLOG_CREATE("blog:create"),           // Can write new blog posts
     BLOG_EDIT_OWN("blog:edit:own"),       // Can edit ONLY their own posts
