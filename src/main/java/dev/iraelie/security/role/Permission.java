@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum Permission {
     private final String permission;
+
     Permission(String permission) {
         this.permission = permission;
     }
