@@ -16,7 +16,11 @@ public enum Permission {
     // COMMENT PERMISSIONS
     COMMENT_READ("comment:read"),
     COMMENT_WRITE("comment:write"),
-    COMMENT_MANAGE("comment:manage");     // Can delete/hide any comment
+    COMMENT_MANAGE("comment:manage"),     // Can delete/hide any comment
+
+    USER_MANAGE("user:manage"),           // Can manage all users
+    ROLE_ASSIGN("role:assign"),           // Can assign roles to users
+    PLATFORM_CONFIGURE("platform:configure"); // Can configure platform
 
     private final String permission;
 
