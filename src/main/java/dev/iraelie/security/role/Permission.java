@@ -11,7 +11,12 @@ public enum Permission {
     BLOG_EDIT_ANY("blog:edit:any"),       // Can edit ANY author's post
     BLOG_DELETE_OWN("blog:delete:own"),   // Can delete ONLY their own posts
     BLOG_DELETE_ANY("blog:delete:any"),   // Can delete ANY post
-    BLOG_PUBLISH("blog:publish");
+    BLOG_PUBLISH("blog:publish"),
+
+    // COMMENT PERMISSIONS
+    COMMENT_READ("comment:read"),
+    COMMENT_WRITE("comment:write"),
+    COMMENT_MANAGE("comment:manage");     // Can delete/hide any comment
 
     private final String permission;
 
