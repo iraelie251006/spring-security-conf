@@ -19,7 +19,6 @@ public enum Permission {
     COMMENT_WRITE("comment:write"),
     COMMENT_MANAGE("comment:manage"),     // Can delete/hide any comment
 
-
     // USER MANAGEMENT PERMISSIONS (Admin only)
     USER_MANAGE("user:manage"),           // Can manage all users
     ROLE_ASSIGN("role:assign"),           // Can assign roles to users
