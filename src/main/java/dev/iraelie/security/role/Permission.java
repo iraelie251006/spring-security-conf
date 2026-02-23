@@ -13,10 +13,13 @@ public enum Permission {
     BLOG_DELETE_ANY("blog:delete:any"),   // Can delete ANY post
     BLOG_PUBLISH("blog:publish"),
 
+
     // COMMENT PERMISSIONS
     COMMENT_READ("comment:read"),
     COMMENT_WRITE("comment:write"),
     COMMENT_MANAGE("comment:manage"),     // Can delete/hide any comment
+
+
 
     // USER MANAGEMENT PERMISSIONS (Admin only)
     USER_MANAGE("user:manage"),           // Can manage all users
