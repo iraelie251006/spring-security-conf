@@ -14,7 +14,6 @@ public enum Permission {
     BLOG_PUBLISH("blog:publish"),
 
 
-
     // COMMENT PERMISSIONS
     COMMENT_READ("comment:read"),
     COMMENT_WRITE("comment:write"),
